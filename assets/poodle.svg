@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" role="img" aria-labelledby="titlePoodle descPoodle">
+  <title id="titlePoodle">Poodle illustration</title>
+  <desc id="descPoodle">A playful Poodle with curly fur, a proud pose, and a bright smile.</desc>
+  <rect width="220" height="180" fill="#f7f3ec"/>
+  <ellipse cx="110" cy="148" rx="74" ry="16" fill="#dfeec6"/>
+  <ellipse cx="108" cy="102" rx="50" ry="42" fill="#d7c8d9"/>
+  <ellipse cx="158" cy="97" rx="30" ry="26" fill="#d7c8d9"/>
+  <path d="M70 84 Q60 60 77 52 Q94 47 99 62 Q83 72 70 84 Z" fill="#caaec7"/>
+  <path d="M136 86 Q145 62 160 52 Q174 50 176 68 Q164 74 136 86 Z" fill="#caaec7"/>
+  <circle cx="127" cy="90" r="7" fill="#2f2a2a"/>
+  <circle cx="90" cy="90" r="7" fill="#2f2a2a"/>
+  <circle cx="122" cy="86" r="2.5" fill="#fff"/>
+  <circle cx="95" cy="86" r="2.5" fill="#fff"/>
+  <path d="M96 101 Q109 109 122 101" fill="none" stroke="#2f2a2a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M60 94 L30 106" stroke="#d7c8d9" stroke-width="14" stroke-linecap="round"/>
+  <path d="M159 94 L190 110" stroke="#d7c8d9" stroke-width="14" stroke-linecap="round"/>
+  <path d="M82 62 L56 34" stroke="#b38cb0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M134 62 L162 35" stroke="#b38cb0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M78 59 L61 45" stroke="#b38cb0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M137 59 L156 45" stroke="#b38cb0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M105 120 L118 136 L92 136 Z" fill="#b194b7"/>
+  <circle cx="173" cy="81" r="12" fill="#d9d1e2"/>
+  <circle cx="175" cy="81" r="5" fill="#b38cb0"/>
+  <path d="M74 122 L58 147" stroke="#b38cb0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 122 L165 147" stroke="#b38cb0" stroke-width="8" stroke-linecap="round"/>
+</svg>

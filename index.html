@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Dog Park</title>
+    <meta
+      name="description"
+      content="A beginner-friendly virtual dog park with a dog encyclopedia."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <h1>Virtual Dog Park</h1>
+        <p>
+          Welcome to the park! Take a friendly look at three popular dog breeds,
+          learn what they are like, and get a quick idea of how to care for them.
+        </p>
+      </header>
+
+      <main>
+        <section aria-labelledby="dog-encyclopedia-title">
+          <h2 id="dog-encyclopedia-title" class="section-title">Dog Encyclopedia</h2>
+          <div id="breed-grid" class="breed-grid" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer>Happy sniffing and tail wagging!</footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

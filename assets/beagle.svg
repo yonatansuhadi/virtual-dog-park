@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" role="img" aria-labelledby="titleBeagle descBeagle">
+  <title id="titleBeagle">Beagle illustration</title>
+  <desc id="descBeagle">A cheerful Beagle standing outdoors with floppy ears and a soft brown coat.</desc>
+  <rect width="220" height="180" fill="#f6f0db"/>
+  <ellipse cx="110" cy="148" rx="72" ry="18" fill="#dce8b8"/>
+  <ellipse cx="98" cy="98" rx="48" ry="38" fill="#b88a5a"/>
+  <ellipse cx="150" cy="96" rx="42" ry="32" fill="#b88a5a"/>
+  <circle cx="129" cy="88" r="8" fill="#2f2a2a"/>
+  <circle cx="88" cy="88" r="8" fill="#2f2a2a"/>
+  <circle cx="80" cy="83" r="3" fill="#fff"/>
+  <circle cx="121" cy="83" r="3" fill="#fff"/>
+  <path d="M95 102 Q110 110 125 102" fill="none" stroke="#2f2a2a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70 92 L28 110" stroke="#b88a5a" stroke-width="16" stroke-linecap="round"/>
+  <path d="M154 92 L191 110" stroke="#b88a5a" stroke-width="16" stroke-linecap="round"/>
+  <path d="M62 63 L44 38" stroke="#8d5f36" stroke-width="8" stroke-linecap="round"/>
+  <path d="M154 63 L172 36" stroke="#8d5f36" stroke-width="8" stroke-linecap="round"/>
+  <path d="M84 54 L58 35" stroke="#8d5f36" stroke-width="8" stroke-linecap="round"/>
+  <path d="M136 54 L160 32" stroke="#8d5f36" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="62" cy="118" rx="18" ry="11" fill="#a9744d"/>
+  <ellipse cx="165" cy="118" rx="18" ry="11" fill="#a9744d"/>
+  <path d="M109 103 L122 122 L95 122 Z" fill="#d9b98d"/>
+  <circle cx="150" cy="104" r="4" fill="#f7d38d"/>
+  <circle cx="95" cy="104" r="4" fill="#f7d38d"/>
+  <path d="M88 132 L72 148" stroke="#8d5f36" stroke-width="8" stroke-linecap="round"/>
+  <path d="M135 132 L150 148" stroke="#8d5f36" stroke-width="8" stroke-linecap="round"/>
+</svg>

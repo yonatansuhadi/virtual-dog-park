@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" role="img" aria-labelledby="titleGolden descGolden">
+  <title id="titleGolden">Golden Retriever illustration</title>
+  <desc id="descGolden">A happy Golden Retriever standing with a soft golden coat and wagging tail.</desc>
+  <rect width="220" height="180" fill="#f8f1dc"/>
+  <ellipse cx="112" cy="147" rx="78" ry="16" fill="#dfeab2"/>
+  <ellipse cx="112" cy="103" rx="54" ry="42" fill="#d4a64a"/>
+  <ellipse cx="156" cy="102" rx="32" ry="28" fill="#d4a64a"/>
+  <path d="M152 130 L175 148 L153 150 Z" fill="#d4a64a"/>
+  <path d="M63 126 L40 146 L63 150 Z" fill="#d4a64a"/>
+  <circle cx="128" cy="90" r="7" fill="#2f2a2a"/>
+  <circle cx="94" cy="90" r="7" fill="#2f2a2a"/>
+  <circle cx="90" cy="87" r="2.5" fill="#fff"/>
+  <circle cx="124" cy="87" r="2.5" fill="#fff"/>
+  <path d="M95 101 Q111 109 127 101" fill="none" stroke="#2f2a2a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M60 94 L25 110" stroke="#d4a64a" stroke-width="16" stroke-linecap="round"/>
+  <path d="M160 94 L195 108" stroke="#d4a64a" stroke-width="16" stroke-linecap="round"/>
+  <path d="M84 63 L62 35" stroke="#9a6d2f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M136 63 L158 33" stroke="#9a6d2f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M70 58 L48 70" stroke="#9a6d2f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M152 58 L172 70" stroke="#9a6d2f" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="72" cy="117" rx="16" ry="10" fill="#d4a64a"/>
+  <ellipse cx="154" cy="117" rx="16" ry="10" fill="#d4a64a"/>
+  <path d="M109 118 L122 135 L94 135 Z" fill="#f1db9a"/>
+  <circle cx="167" cy="79" r="10" fill="#f5e8bd"/>
+  <circle cx="168" cy="79" r="3" fill="#d4a64a"/>
+</svg>
