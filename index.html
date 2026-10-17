@@ -21,6 +21,50 @@
       </header>
 
       <main>
+        <section class="adoption-section" aria-labelledby="virtual-dog-title">
+          <h2 id="virtual-dog-title" class="section-title">My Virtual Dog</h2>
+
+          <form id="adoption-form" class="adoption-form" novalidate>
+            <div class="field">
+              <label for="breed-select">Choose a breed</label>
+              <select id="breed-select" name="breed">
+                <option value="Beagle">Beagle</option>
+                <option value="Golden Retriever">Golden Retriever</option>
+                <option value="Poodle">Poodle</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="dog-name">Dog name</label>
+              <input
+                id="dog-name"
+                name="dog-name"
+                type="text"
+                maxlength="20"
+                placeholder="Type a dog name"
+              />
+            </div>
+
+            <button type="submit" class="primary-button">Adopt</button>
+          </form>
+
+          <p id="name-error" class="form-message" role="alert" aria-live="polite"></p>
+
+          <div id="pet-card" class="pet-card hidden" aria-live="polite">
+            <h3>Your Virtual Dog</h3>
+            <p><strong>Name:</strong> <span id="pet-name"></span></p>
+            <p><strong>Breed:</strong> <span id="pet-breed"></span></p>
+            <p><strong>Day:</strong> <span id="pet-day"></span></p>
+            <p><strong>Growth Stage:</strong> <span id="pet-stage"></span></p>
+            <p><strong>Happiness:</strong> <span id="pet-happiness"></span></p>
+
+            <div class="pet-actions">
+              <button type="button" id="feed-button" class="secondary-button">Feed</button>
+              <button type="button" id="play-button" class="secondary-button">Play</button>
+            </div>
+          </div>
+        </section>
+
         <section aria-labelledby="dog-encyclopedia-title">
           <h2 id="dog-encyclopedia-title" class="section-title">Dog Encyclopedia</h2>
           <div id="breed-grid" class="breed-grid" aria-live="polite"></div>
