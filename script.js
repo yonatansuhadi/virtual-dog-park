@@ -1,3 +1,5 @@
+const STORAGE_KEY = 'virtualDogParkPetV1';
+
 const breeds = [
   {
     name: 'Beagle',
@@ -38,6 +40,10 @@ const petStage = document.getElementById('pet-stage');
 const petHappiness = document.getElementById('pet-happiness');
 const feedButton = document.getElementById('feed-button');
 const playButton = document.getElementById('play-button');
+const nextDayButton = document.getElementById('next-day-button');
+const startOverButton = document.getElementById('start-over-button');
+const petIllustration = document.getElementById('pet-illustration');
+const growthFill = document.getElementById('growth-fill');
 
 const dogState = {
   name: '',
@@ -67,6 +73,34 @@ if (breedGrid) {
     .join('');
 }
 
+function getGrowthStage(day) {
+  if (day <= 1) {
+    return 'Puppy';
+  }
+
+  if (day <= 3) {
+    return 'Young Dog';
+  }
+
+  return 'Adult Dog';
+}
+
+function getGrowthBarPercent(day) {
+  if (day <= 1) {
+    return 25;
+  }
+
+  if (day <= 3) {
+    return 60;
+  }
+
+  return 100;
+}
+
+function getBreedByName(breedName) {
+  return breeds.find((breed) => breed.name === breedName) || breeds[0];
+}
+
 function validateDogName(name) {
   const trimmedName = name.trim();
 
@@ -94,16 +128,141 @@ function setMessage(message, type) {
   }
 }
 
+function saveDogState() {
+  if (!dogState.name) {
+    localStorage.removeItem(STORAGE_KEY);
+    return;
+  }
+
+  const dogToSave = {
+    name: dogState.name,
+    breed: dogState.breed,
+    day: dogState.day,
+    happiness: dogState.happiness
+  };
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(dogToSave));
+}
+
+function loadSavedDog() {
+  try {
+    const savedValue = localStorage.getItem(STORAGE_KEY);
+
+    if (!savedValue) {
+      return null;
+    }
+
+    const savedDog = JSON.parse(savedValue);
+
+    if (!savedDog || typeof savedDog !== 'object') {
+      return null;
+    }
+
+    const name = typeof savedDog.name === 'string' ? savedDog.name.trim() : '';
+    const breed = typeof savedDog.breed === 'string' ? savedDog.breed : 'Beagle';
+    const day = Number(savedDog.day);
+    const happiness = Number(savedDog.happiness);
+
+    if (!name || name.length > 20 || !breeds.some((breedInfo) => breedInfo.name === breed)) {
+      return null;
+    }
+
+    if (!Number.isFinite(day) || !Number.isFinite(happiness)) {
+      return null;
+    }
+
+    return {
+      name,
+      breed,
+      day: Math.max(1, Math.round(day)),
+      happiness: Math.min(100, Math.max(0, Math.round(happiness)))
+    };
+  } catch (error) {
+    console.warn('Saved dog data could not be read.', error);
+    return null;
+  }
+}
+
+function updateDogVisual() {
+  if (!petIllustration) {
+    return;
+  }
+
+  const breedInfo = getBreedByName(dogState.breed);
+  petIllustration.src = breedInfo.image;
+  petIllustration.alt = breedInfo.alt;
+
+  if (dogState.stage === 'Puppy') {
+    petIllustration.style.transform = 'scale(0.9)';
+  } else if (dogState.stage === 'Young Dog') {
+    petIllustration.style.transform = 'scale(1.1)';
+  } else {
+    petIllustration.style.transform = 'scale(1.3)';
+  }
+
+  if (growthFill) {
+    growthFill.style.width = `${getGrowthBarPercent(dogState.day)}%`;
+  }
+}
+
 function updatePetCard() {
   if (!petCard || !petName || !petBreed || !petDay || !petStage || !petHappiness) {
     return;
   }
+
+  dogState.stage = getGrowthStage(dogState.day);
 
   petName.textContent = dogState.name;
   petBreed.textContent = dogState.breed;
   petDay.textContent = String(dogState.day);
   petStage.textContent = dogState.stage;
   petHappiness.textContent = `${dogState.happiness}%`;
+  updateDogVisual();
+}
+
+function restoreSavedDog() {
+  const savedDog = loadSavedDog();
+
+  if (!savedDog) {
+    return;
+  }
+
+  dogState.name = savedDog.name;
+  dogState.breed = savedDog.breed;
+  dogState.day = savedDog.day;
+  dogState.happiness = savedDog.happiness;
+
+  if (breedSelect) {
+    breedSelect.value = dogState.breed;
+  }
+
+  if (dogNameInput) {
+    dogNameInput.value = dogState.name;
+  }
+
+  updatePetCard();
+
+  if (petCard) {
+    petCard.classList.remove('hidden');
+  }
+}
+
+function clearAdoptionForm() {
+  if (adoptionForm) {
+    adoptionForm.reset();
+  }
+
+  if (breedSelect) {
+    breedSelect.value = 'Beagle';
+  }
+
+  if (dogNameInput) {
+    dogNameInput.value = '';
+  }
+
+  if (petCard) {
+    petCard.classList.add('hidden');
+  }
 }
 
 function adoptDog(event) {
@@ -121,11 +280,12 @@ function adoptDog(event) {
   dogState.name = candidateName.trim();
   dogState.breed = breedSelect ? breedSelect.value : dogState.breed;
   dogState.day = 1;
-  dogState.stage = 'Puppy';
   dogState.happiness = 50;
+  dogState.stage = 'Puppy';
 
   updatePetCard();
   petCard.classList.remove('hidden');
+  saveDogState();
   setMessage(`${dogState.name} is ready for a happy day!`, 'success');
 }
 
@@ -135,8 +295,9 @@ function increaseHappiness(amount) {
     return;
   }
 
-  dogState.happiness = Math.min(100, dogState.happiness + amount);
+  dogState.happiness = Math.min(100, Math.max(0, dogState.happiness + amount));
   updatePetCard();
+  saveDogState();
 }
 
 function feedDog() {
@@ -159,6 +320,37 @@ function playWithDog() {
   setMessage(`${dogState.name} had a playful time!`, 'success');
 }
 
+function nextDay() {
+  if (!dogState.name) {
+    setMessage('Adopt a dog before moving to the next day.', 'error');
+    return;
+  }
+
+  dogState.day += 1;
+  dogState.happiness = Math.max(0, dogState.happiness - 5);
+  updatePetCard();
+  saveDogState();
+  setMessage(`${dogState.name} is now a ${dogState.stage}.`, 'success');
+}
+
+function startOver() {
+  const confirmed = window.confirm('Start over and delete your saved dog?');
+
+  if (!confirmed) {
+    return;
+  }
+
+  localStorage.removeItem(STORAGE_KEY);
+  dogState.name = '';
+  dogState.breed = 'Beagle';
+  dogState.day = 1;
+  dogState.happiness = 50;
+  dogState.stage = 'Puppy';
+
+  clearAdoptionForm();
+  setMessage('Saved progress was cleared. You can adopt a new dog.', 'success');
+}
+
 if (adoptionForm) {
   adoptionForm.addEventListener('submit', adoptDog);
 }
@@ -170,3 +362,13 @@ if (feedButton) {
 if (playButton) {
   playButton.addEventListener('click', playWithDog);
 }
+
+if (nextDayButton) {
+  nextDayButton.addEventListener('click', nextDay);
+}
+
+if (startOverButton) {
+  startOverButton.addEventListener('click', startOver);
+}
+
+restoreSavedDog();

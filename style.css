@@ -196,10 +196,56 @@ input {
   margin: 0.35rem 0;
 }
 
+.pet-visual {
+  display: flex;
+  justify-content: center;
+  margin: 0.75rem 0 1rem;
+}
+
+.pet-visual img {
+  width: 150px;
+  max-width: 100%;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 8px 12px rgba(47, 42, 42, 0.18));
+}
+
+.growth-meter {
+  width: 100%;
+  height: 14px;
+  background: #e8e3d2;
+  border: 1px solid rgba(106, 143, 93, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.5rem 0 1rem;
+}
+
+.growth-fill {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, #b7d78d, #6a8f5d);
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+
 .pet-actions {
   display: flex;
   gap: 0.75rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.reset-row {
+  margin-top: 1rem;
+}
+
+.danger-button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: #d97777;
+  color: #fff;
 }
 
 .hidden {
